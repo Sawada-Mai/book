@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+
+{% block title %}登録{% endblock %}
+
+
+{% block body %}
+<div>
+  <form action="/edit/{{ post.id }}" method="POST" class="row g-3">
+    <div class="mb-3">
+      <label for="title" class="form-label">本のタイトル</label> <!-- label内のforはlabel要素もクリック範囲にする -->
+      <input type="text" class="form-control" id="title" name="title" value={{ post.title }}>
+    </div>
+    <div class="mb-3">
+      <label for="purpose" class="form-label">目的</label>
+      <input type="text" class="form-control" id="purpose" name="purpose" value={{ post.purpose }}>
+    </div>
+    <div class="form-floating">
+      <textarea class="form-control" placeholder="Leave a comment here" id="thoughts" style="height: 100px" name="thoughts">{{ post.thoughts }}</textarea>
+      <label for="thoughts">感想</label>
+    </div>
+    <div class="form-floating">
+      <textarea class="form-control" placeholder="Leave a comment here" id="memo" style="height: 100px" name="memo">{{ post.memo }}</textarea>
+      <label for="memo">メモ</label>
+    </div>
+    <input type="submit" value="変更">
+  </form>
+</div>
+{% endblock %}

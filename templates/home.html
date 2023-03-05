@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+
+{% block title %}ホーム{% endblock %}
+
+
+{% block body %}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <h1>読書記録</h1>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse box-back" id="navbarSupportedContent">
+
+      <a class="nav-link active register" aria-current="page" href="/register">追加</a>
+
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="目的検索" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <div>
+      {% for post in posts %}
+        <details>
+          <summary>{{ post.title }} {{ post.score }}</summary>
+              <div>
+                <dl class="box-detail">
+                  <dt>目的</dt>
+                  <dd>{{ post.purpose }}</dd>
+                  <dt>感想</dt>
+                  <dd>{{ post.thoughts }}</dd>
+                  <dt>メモ</dt>
+                  <dd>{{ post.memo }}</dd>
+                </dl>
+    
+                <a href="/edit/{{ post.id }}" role="button" class="home-button">編集</a>
+                <a href="/delete/{{ post.id }}" role="button" class="home-button">削除</a>
+              </div>
+        </details>
+        <br>
+      {% endfor %}
+  </div>
+
+
+</div>
+{% endblock %}
