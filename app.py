@@ -20,21 +20,27 @@ def home():
         return render_template('home.html', posts=posts)
     
     else:
-      title = request.form.get('title')
-      purpose = request.form.get('purpose')
-      thoughts = request.form.get('thoughts')
-      memo = request.form.get('memo')
-      score = request.form.get('score')
+        search = request.form.get('search')
+        posts = db.session.query(Post).filter(Post.purpose.contains(search)).all()
+        return render_template('home.html', posts = posts)
 
-      date = Post(title=title, purpose=purpose, thoughts=thoughts, memo=memo, score=score)
-      db.session.add(date)
-      db.session.commit()
-
-      return redirect('/')
-
-@app.route('/register')
+@app.route('/register', methods=["GET", "POST"])
 def register():
-    return render_template('register.html')
+    if request.method == "POST":
+        title = request.form.get('title')
+        purpose = request.form.get('purpose')
+        thoughts = request.form.get('thoughts')
+        memo = request.form.get('memo')
+        score = request.form.get('score')
+
+        date = Post(title=title, purpose=purpose, thoughts=thoughts, memo=memo, score=score)
+        db.session.add(date)
+        db.session.commit()
+
+        return redirect('/')
+
+    else:
+        return render_template('register.html')
 
 @app.route('/delete/<int:id>')
 def delete(id):

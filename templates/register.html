@@ -6,22 +6,22 @@
 
 {% block body %}
 <div>
-  <form action="/" method="POST" class="row g-3">
+  <form action="/register" method="POST" class="row g-3 form-box">
     <div class="mb-3">
       <label for="title" class="form-label">本のタイトル</label> <!-- label内のforはlabel要素もクリック範囲にする -->
-      <input type="text" class="form-control" id="title" name="title">
+      <input type="text" class="form-control" id="title" name="title" required>
     </div>
     <div class="mb-3">
       <label for="purpose" class="form-label">目的</label>
       <input type="text" class="form-control" id="purpose" name="purpose">
     </div>
-    <div class="form-floating">
-      <textarea class="form-control" placeholder="Leave a comment here" id="thoughts" style="height: 100px" name="thoughts"></textarea>
+    <div class="mb-3">
       <label for="thoughts">感想</label>
+      <textarea class="form-control" id="thoughts" style="height: 100px" name="thoughts"></textarea>
     </div>
-    <div class="form-floating">
-      <textarea class="form-control" placeholder="Leave a comment here" id="memo" style="height: 100px" name="memo"></textarea>
+    <div class="mb-3">
       <label for="memo">メモ</label>
+      <textarea class="form-control" id="memo" style="height: 100px" name="memo"></textarea>
     </div>
     <label for="purpose" class="form-label">総合評価</label>
     <select class="form-select" aria-label="score" name="score">
@@ -33,7 +33,7 @@
       <option value="★★★★☆">4</option>
       <option value="★★★★★">5</option>
     </select>
-    <input type="submit" value="登録">
+    <input type="submit" class="styled" value="登録">
   </form>
 </div>
 {% endblock %}

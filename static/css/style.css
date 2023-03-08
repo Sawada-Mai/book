@@ -3,6 +3,15 @@ body{
   background-color: #eeeae3;
 }
 
+.blank{
+  white-space: pre-wrap;
+}
+
+.color-white{
+  color: #fff;
+  border: solid #fff;
+}
+
 h1{
   margin: 10px;
   margin-right: 30px;
@@ -13,6 +22,25 @@ nav{
   height: 70px;
   margin-bottom: 50px;
   background-image: url(../images/photo2.jpg);
+}
+
+a.btn_03 {
+	display: block;
+	text-align: center;
+	text-decoration: none;
+	width: 100px;
+	margin: 10px auto;
+	padding: 0.5rem 1rem;
+	font-weight: bold;
+	border: 2px solid #7d6d51;
+	color: #7d6d51;
+	border-radius: 100vh;
+	transition: 0.5s;
+}
+
+a.btn_03:hover {
+	color: #fff;
+	background: #7d6d51;
 }
 
 details { /* 折りたたみボックス全体 */
@@ -62,9 +90,37 @@ dd{
   padding: 10px;
 }
 
+.form-box{
+  width: 800px;
+  margin: auto;
+}
+
+.styled {
+  border: 0;
+  line-height: 2.5;
+  padding: 0 20px;
+  font-size: 1rem;
+  text-align: center;
+  width: 100px;
+  margin: 40px auto;
+  color: #000000;
+  border-radius: 10px;
+  /* background-color: #eeeae3; */
+  background-image: linear-gradient(to top left, #00000033, #00000033 30%, #00000000);
+  box-shadow: inset 2px 2px 3px rgba(255, 255, 255, 0.6), inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+}
+
+
 @media (max-width: 700px) {
   /* 横幅が320px以下の場合に適用するスタイル */
   details{
+    width: 80vw;
+  }
+}
+
+@media (max-width: 900px) {
+  /* 横幅が320px以下の場合に適用するスタイル */
+  .form-box{
     width: 80vw;
   }
 }

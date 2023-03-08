@@ -14,11 +14,11 @@
     </button>
     <div class="collapse navbar-collapse box-back" id="navbarSupportedContent">
 
-      <a class="nav-link active register" aria-current="page" href="/register">追加</a>
+      <a class="nav-link active register " aria-current="page" href="/register">追加</a>
 
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="目的検索" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+      <form action="/" method="POST" class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="目的検索" aria-label="Search" name="search">
+        <button class="btn btn-outline-success color-white" type="submit">Search</button>
       </form>
     </div>
   </div>
@@ -35,13 +35,16 @@
                   <dt>目的</dt>
                   <dd>{{ post.purpose }}</dd>
                   <dt>感想</dt>
-                  <dd>{{ post.thoughts }}</dd>
+                  <dd class="blank">{{ post.thoughts }}</dd>
                   <dt>メモ</dt>
-                  <dd>{{ post.memo }}</dd>
+                  <dd class="blank">{{ post.memo }}</dd>
                 </dl>
     
-                <a href="/edit/{{ post.id }}" role="button" class="home-button">編集</a>
-                <a href="/delete/{{ post.id }}" role="button" class="home-button">削除</a>
+                <div class="wrap">
+                  <a href="/edit/{{ post.id }}" role="button" class="btn_03">編集</a>
+                  <a href="/delete/{{ post.id }}" role="button" class="btn_03">削除</a>
+                </di>
+                
               </div>
         </details>
         <br>
